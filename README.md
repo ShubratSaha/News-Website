@@ -1,6 +1,12 @@
 # News-Website
 A web app 'The BroadCast', used to store and display news uploaded by registered users and managed by admin.
 
+# Technologies Used
+1. HTML5
+2. CSS
+3. Python
+4. Flask Framework
+
 # How to Run
 1. Download the project
 2. Move into the project folder
