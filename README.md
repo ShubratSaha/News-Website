@@ -6,6 +6,7 @@ A web app 'The BroadCast', used to store and display news uploaded by registered
 2. CSS
 3. Python
 4. Flask Framework
+5. JSON
 
 # How to Run
 1. Download the project
