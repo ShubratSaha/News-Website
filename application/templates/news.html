@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>The BroadCast - News</title>
+{% endblock %}
+
+
+{% block content %}
+	<div class="content">
+		{%if session.get('username') %}
+		<span><a href="{{url_for('addnews')}}"><button class="addnews">Add News</button></a></span>
+		{% endif %}
+		<h1>News</h1>
+		<ul>
+		{% if newscoll %}
+			{% for data in newscoll %}
+					<a href="{{url_for('newsdetail', idx=data['news_id'])}}"><li>{{data['headline']}}</li></a>
+			{% endfor %}
+		{% else %}
+			<h2>No News to show</h2>
+		{% endif %}
+		</ul>
+	</div>
+{% endblock %}

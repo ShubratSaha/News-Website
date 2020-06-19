@@ -1,0 +1,51 @@
+<nav>
+    <div class="logo">
+        <a href="index.html">The BroadCast</a></div>
+    <label for="btn" class="icon">
+        <span class="fa fa-bars"></span>
+    </label>
+    <input type="checkbox" id="btn">
+    <ul>
+        <li><a href="{{url_for('index')}}" {% if index %} class="active" {% endif %}>Home</a></li>
+        <li><a href="{{url_for('news')}}" {% if news %} class="active" {% endif %}>News</a></li>
+        <li><a href="{{url_for('contact')}}" {% if contact %} class="active" {% endif %}>Contact Us</a></li>
+
+        {% if not session.get('username') %}
+        <li><a href="{{url_for('register')}}" {% if register %} class="active" {% endif %}>Register</a></li>
+        {% endif %}
+        
+        {% if not session.get('username') %}
+        <li><a href="{{url_for('login')}}" {% if login %} class="active" {% endif %}>Login</a></li>
+        {% else %}
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<div class="side-icons">
+    <div class="side-icon">
+        <a href="facebook.com">
+            <span class="fa fa-facebook"></span>
+        </a>
+    </div>
+    <div class="side-icon">
+        <a href="linkedin.com">
+            <span class="fa fa-linkedin"></span>
+        </a>
+    </div>
+    <div class="side-icon">
+        <a href="instagram.com">
+            <span class="fa fa-instagram"></span>
+        </a>
+    </div>
+    <div class="side-icon">
+        <a href="tel:0000000000">
+            <span class="fa fa-phone"></span>
+        </a>
+    </div>
+    <div class="side-icon">
+        <a href="mailto:admin@newsapp.com">
+            <span class="fa fa-envelope"></span>
+        </a>
+    </div>
+</div>

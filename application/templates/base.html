@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	{% block title %}
+	
+	{% endblock %}
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	{% include "/includes/navbar.html" %}
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for category, message in messages %}
+				<p class="message message-{{category}}">{{ message }}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+    {% block content %}
+    
+    {% endblock %}
+
+
+	{% include "/includes/footer.html" %}
+
+
+</body>
+
+</html>

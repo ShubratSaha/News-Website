@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{newsdata['headline']}}</title>
+{% endblock %}
+
+
+{% block content %}
+	<div class="content newsdetail-content">
+		{% if flag %}
+			{% if session.get('admin') %}
+				<a href="{{ url_for('deletenews', idx=newsdata['news_id']) }}"><button>Remove</button></a>
+				<a href="{{ url_for('updatenews', idx=newsdata['news_id']) }}"><button>Edit</button></a>
+			{% endif %}
+			</form>
+			<h5 class="category">{{newsdata['category']}}</h5>
+			<h5 class="date-time">{{newsdata['datetime']}}</h5>
+			<br>
+			<h1>{{newsdata['headline']}}</h1>
+			<br>
+			<h4>- {{newsdata['author_name']}}</h4>
+			{% for desc in newsdata['description'] %}
+				<p>{{desc}}</p>
+			{% endfor %}
+		{% else %}
+			<h1>News Not Found!!! Please Check</h1>
+		{% endif %}
+	</div>
+{% endblock %}

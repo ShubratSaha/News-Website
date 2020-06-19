@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>The BroadCast - Edit News</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+	<div class="content">
+        {% if flag %}
+            <h1>Edit News</h1>
+            
+            <form name='register' action='' class="form-class" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <input type="text" name="news_id" value="{{newsdata['news_id']}}" hidden>
+                {{ form.headline.label }}<br>
+                {{ form.headline(value=newsdata['headline']) }}<br>
+                {% for error in form.headline.errors %}
+                    <span class="error-message">{{ error }}</span><br><br>
+                {% endfor %}
+                {{ form.author_name.label }}<br>
+                {{ form.author_name(value=newsdata['author_name']) }}<br>
+                {% for error in form.author_name.errors %}
+                    <span class="error-message">{{ error }}</span><br><br>
+                {% endfor %}
+                {{ form.category.label }}<br>
+                {{ form.category(value=newsdata['category']) }}<br>
+                {% for error in form.category.errors %}
+                    <span class="error-message">{{ error }}</span><br><br>
+                {% endfor %}
+                {{ form.description.label }}<br>
+                {{ form.description() }}<br>
+                {% for error in form.description.errors %}
+                    <span class="error-message">{{ error }}</span><br><bR>
+                {% endfor %}
+                {{ form.submit() }}
+            </form>
+        {% else %}
+            <h1>News, no longer available to edit</h1>
+        {% endif %}
+		
+	</div>
+
+{% endblock %}
